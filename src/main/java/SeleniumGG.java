@@ -1,6 +1,5 @@
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -13,7 +12,6 @@ public class SeleniumGG {
 
     public ChromeDriver driver;
     private final WebDriverWait wait;
-    JavascriptExecutor js;
     public String productPagePrice;
     public String bucketPrice;
 
@@ -21,7 +19,6 @@ public class SeleniumGG {
         this.driver = driver;
         wait = new WebDriverWait(driver, 5);
         driver.manage().window().maximize();
-        js = driver;
     }
 
     public void goPage(String link) {
@@ -69,7 +66,7 @@ public class SeleniumGG {
     }
 
     public void scrollIntoView(WebElement webElement) {
-        js.executeScript("arguments[0].scrollIntoView();", webElement);
+        driver.executeScript("arguments[0].scrollIntoView();", webElement);
         webElement.click();
         /*
           Sitenin altındaki Çerez alerti buton tıklamalarında sorun çıkardığı için
